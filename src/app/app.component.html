@@ -3,18 +3,49 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+   <h1>Input Number : </h1>
+   <input type='text' [(ngModel)]="num"/>
+
+    <div [ngSwitch]="num">
+        <div *ngSwitchCase="'0'">Zero</div>
+        <div *ngSwitchCase="'1'">One</div>
+        <div *ngSwitchCase="'2'">Two</div>
+        <div *ngSwitchCase="'3'">Three</div>
+        <div *ngSwitchCase="'4'">Four</div>
+        <div *ngSwitchCase="'5'">Five</div>
+        <div *ngSwitchCase="'6'">Six</div>
+        <div *ngSwitchCase="'7'">Seven</div>
+        <div *ngSwitchDefault>This is Default</div>
+    </div><br><br>
+
+<div>
+  <select [(ngModel)]="selectedValue">
+      <option *ngFor = 'let item of items' [value]="item.name">{{item.name}}</option>
+  </select>
+
+  <div class='row' [ngSwitch]="selectedValue">
+    <div *ngSwitchCase="'One'">One is Pressed</div>
+    <div *ngSwitchCase="'Two'">Two is Selected</div>
+    <div *ngSwitchCase="'Three'">Three is Selected</div>
+    <div *ngSwitchCase="'Four'">Four is Selected</div>
+    <div *ngSwitchDefault>Default Option</div>
+</div>
+</div><hr/>
+
+<h1>NgIf Directive</h1>
+
+<div>
+    Show Me : <input type="checkbox" [(ngModel)]="showMe"/>
+</div>
+<div>
+
+  <h2 *ngIf='showMe'>
+      showMe is checked
+  </h2>
+  <h2 *ngIf='!showMe'>
+      showMe is Unchecked
+  </h2>
+
+</div>
